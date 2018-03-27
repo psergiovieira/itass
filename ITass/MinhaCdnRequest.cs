@@ -14,6 +14,7 @@ namespace ITass
         private string _httpMethod;
         private string _uriPath;
         private int _timeTaken;
+        private const string _provider = "MINHA CDN";
 
 
         public MinhaCdnRequest(string responseSize, string statusCode, string cacheStatus, string httpMethod,
@@ -25,6 +26,11 @@ namespace ITass
             _httpMethod = httpMethod;
             _uriPath = uriPath;
             _timeTaken = Convert.ToInt32(timeTaken);
+        }
+
+        public string AgoraFormat()
+        {
+            return $"\"{_provider}\" {_httpMethod} {_statusCode} {_uriPath} {_timeTaken} {_responseSize} {_cacheStatus}";
         }
     }
 }
