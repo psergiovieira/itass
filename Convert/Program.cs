@@ -36,12 +36,19 @@ namespace Convert
                 }
             }
 
+            var text = new StringBuilder();
+            text.AppendLine("#Version: 1.0");
+            text.AppendLine($"#Date: {DateTime.Now.ToString("dd-MM-yyyy HH:mm:SS")}");
+            text.AppendLine("#Fields: provider http-method status-code uri-path time-taken response-size cache-status");
+            Console.WriteLine(text);
             foreach (var log in logs)
             {
-                var text = log.AgoraFormat();
-                System.Console.WriteLine(text);
+                var agoraFormat = log.AgoraFormat();
+                text.AppendLine(agoraFormat);
+                Console.WriteLine(text);
             }
         
+
             Console.ReadLine();
         }
     }
