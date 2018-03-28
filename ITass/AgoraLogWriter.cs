@@ -16,7 +16,7 @@ namespace ITass
             _path = path;
         }
 
-        public void Write(List<LogFile> logs)
+        public void Write(IList<LogFile> logs)
         {
             var text = new StringBuilder();
             text.AppendLine("#Version: 1.0");

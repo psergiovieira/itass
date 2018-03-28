@@ -9,9 +9,9 @@ namespace ITass
 {
     public class LogConverter
     {
-        private readonly List<LogFile> _logFiles;
+        private readonly IList<LogFile> _logFiles;
 
-        public LogConverter(List<LogFile> logs)
+        public LogConverter(IList<LogFile> logs)
         {
             _logFiles = logs;
         }

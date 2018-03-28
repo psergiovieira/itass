@@ -8,6 +8,6 @@ namespace ITass.Interfaces
 {
     public interface ILogWriter
     {
-        void Write(List<LogFile> logs);
+        void Write(IList<LogFile> logs);
     }
 }
