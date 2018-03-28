@@ -45,7 +45,6 @@
     <Compile Include="Interfaces\ILogWriter.cs" />
     <Compile Include="LogFile.cs" />
     <Compile Include="MinhaCDNLog.cs" />
-    <Compile Include="MinhaCdnRequest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
