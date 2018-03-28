@@ -40,11 +40,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AgoraLogWriter.cs" />
-    <Compile Include="LogConverter.cs" />
-    <Compile Include="Interfaces\ILogWriter.cs" />
-    <Compile Include="LogFile.cs" />
-    <Compile Include="MinhaCDNLog.cs" />
+    <Compile Include="Writer\AgoraLogWriter.cs" />
+    <Compile Include="Converter\LogConverter.cs" />
+    <Compile Include="Interface\ILogWriter.cs" />
+    <Compile Include="Log\LogFile.cs" />
+    <Compile Include="Log\MinhaCDNLog.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
