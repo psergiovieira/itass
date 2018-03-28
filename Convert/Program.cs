@@ -13,7 +13,7 @@ namespace Convert
     {
         public static void Main(string[] args)
         {
-            var logs = new List<MinhaCdnRequest>();
+            var logs = new List<LogFile>();
             var url = "https://s3.amazonaws.com/uux-itaas-static/minha-cdn-logs/input-01.txt";
             var client = new WebClient();
             using (var stream = client.OpenRead(url))
@@ -31,23 +31,13 @@ namespace Convert
                     var uri = uriWithHttpVerb[1];
                     var timeTaken = data[4].Split('.')[0];
 
-                    logs.Add(new MinhaCdnRequest(responseSize, statusCode, cacheStatus, httpMethod, uri, timeTaken));
+                    logs.Add(new MinhaCDNLog(responseSize, statusCode, cacheStatus, httpMethod, uri, timeTaken));
                     Console.WriteLine(line);
                 }
-            }
 
-            var text = new StringBuilder();
-            text.AppendLine("#Version: 1.0");
-            text.AppendLine($"#Date: {DateTime.Now.ToString("dd-MM-yyyy HH:mm:SS")}");
-            text.AppendLine("#Fields: provider http-method status-code uri-path time-taken response-size cache-status");
-            Console.WriteLine(text);
-            foreach (var log in logs)
-            {
-                var agoraFormat = log.AgoraFormat();
-                text.AppendLine(agoraFormat);
-                Console.WriteLine(text);
+                var converter = new LogConverter(logs);
+                converter.Write(new AgoraLogWriter(@"d:\agora.txt"));
             }
-        
 
             Console.ReadLine();
         }
