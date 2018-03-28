@@ -20,7 +20,7 @@ namespace ITass
         {
             var text = new StringBuilder();
             text.AppendLine("#Version: 1.0");
-            text.AppendLine($"#Date: {DateTime.Now.ToString("dd-MM-yyyy HH:mm:SS")}");
+            text.AppendLine($"#Date: {DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss")}");
             text.AppendLine("#Fields: provider http-method status-code uri-path time-taken response-size cache-status");
             foreach (var log in logs)
             {

@@ -9,59 +9,30 @@ namespace ITass
 {
     public abstract class LogFile
     {
-        private int _responseSize;
-        private int _statusCode;
-        private string _cacheStatus;
-        private string _httpMethod;
-        private string _uriPath;
-        private int _timeTaken;
-        private string _provider;
+        public int ResponseSize { get; }
+
+        public int StatusCode { get; }
+
+        public string CacheStatus { get; }
+
+        public string HttpMethod { get; }
+
+        public string UriPath { get; }
+
+        public int TimeTaken { get; }
+
+        public string Provider { get; }
 
         protected LogFile(string responseSize, string statusCode, string cacheStatus, string httpMethod,
                             string uriPath, string timeTaken, string provider)
         {
-            _responseSize = Convert.ToInt32(responseSize);
-            _statusCode = Convert.ToInt32(statusCode);
-            _cacheStatus = cacheStatus;
-            _httpMethod = httpMethod;
-            _uriPath = uriPath;
-            _timeTaken = Convert.ToInt32(timeTaken);
-            _provider = provider;
-        }
-
-        public int ResponseSize
-        {
-            get { return _responseSize; }
-        }
-
-        public int StatusCode
-        {
-            get { return _statusCode; }
-        }
-
-        public string CacheStatus
-        {
-            get { return _cacheStatus; }
-        }
-
-        public string HttpMethod
-        {
-            get { return _httpMethod; }
-        }
-
-        public string UriPath
-        {
-            get { return _uriPath; }
-        }
-
-        public int TimeTaken
-        {
-            get { return _timeTaken; }
-        }
-
-        public string Provider
-        {
-            get { return _provider; }
+            ResponseSize = Convert.ToInt32(responseSize);
+            StatusCode = Convert.ToInt32(statusCode);
+            CacheStatus = cacheStatus;
+            HttpMethod = httpMethod;
+            UriPath = uriPath;
+            TimeTaken = Convert.ToInt32(timeTaken);
+            Provider = provider;
         }
     }
 }
